@@ -6,14 +6,14 @@ import numpy as np
 
 def psi(al, oms, X):
     """
-    Menghitung fungsi gelombang percobaan (trial wave function).
+    Calculate trial wave function.
     """
     rexp = np.sum(oms * X**2)
     return np.exp(-0.5 * al * rexp)
 
 def ekin(al, oms, X, h=0.01, hom=1.):
     """
-    Menghitung energi kinetik lokal menggunakan finite difference.
+    Calculate kinetic energy using finite difference.
     """
     npart, ndim = X.shape
     psiold = psi(al, oms, X)
@@ -32,7 +32,7 @@ def ekin(al, oms, X, h=0.01, hom=1.):
 
 def epot(oms, X, g=3.):
     """
-    Menghitung energi potensial lokal.
+    Calculate potential energy.
     """
     npart, ndim = X.shape
     
@@ -50,7 +50,7 @@ def epot(oms, X, g=3.):
 
 def vmc(n_particles, nd, al, oms, seed=314159):
     """
-    Melakukan simulasi Variational Monte Carlo.
+    Perform Variational Monte Carlo simulation.
     """
     y = 10**4    
     nm = 10      
